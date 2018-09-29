@@ -1,0 +1,30 @@
+{% extends "baseProcafe.html" %}
+{% load i18n admin_static %}
+
+{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/dashboard.css" %}" />{% endblock %}
+
+{% block coltype %}colMS{% endblock %}
+
+{% block bodyclass %}{{ block.super }} dashboard{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+
+        {% if bool %}
+        <!-- Upload form. Note enctype attribute! -->
+        <form role="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+            <p>{{ form.file.label_tag }} {{ form.file.help_text }}</p>
+            <p>
+                {{ form.file.errors }}
+                {{ form.file }}
+            <input type="submit" value="Cargar" /></p>
+        </form>
+        <p><t style="color: green;">{{mensaje}}</t></p>
+        {% else %}
+        <p>Usted no posee permisos para cargar nómina, diríjase con su supervisor.</p>
+        {% endif %}
+
+{% endblock %}

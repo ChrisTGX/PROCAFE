@@ -1,0 +1,104 @@
+{% extends "baseProcafe.html" %}
+
+
+{% block content %}
+<div >
+	<h3> Perfil </h3>
+		<div class="col-md-4 column">
+
+			<img src="{{ STATIC_URL }}profile.jpg" width="160" height="160">
+
+		</div>
+		<div class="col-md-4 column">
+			<dl>
+				<dt>
+					Nombre(s)
+				</dt>
+				<dd>
+					{{ loggedUser.user.first_name }}
+				</dd>
+				<dt>
+					Apellido(s)
+				</dt>
+				<dd>
+					{{ loggedUser.user.last_name }}
+				</dd>
+				<dt>
+					Cédula de Identidad
+				</dt>
+				<dd>
+					{{ loggedUser.ID_number }}
+				</dd>
+				</dd>
+				<dt>
+					USD ID
+				</dt>
+				<dd>
+					{{ loggedUser.USB_ID }}
+				</dd>
+
+				<dt>
+					Cargo
+				</dt>
+				<dd>
+					{{ loggedUser.type }}
+				</dd>
+				<dt>
+					Fecha de Nacimiento
+				</dt>
+				<dd>
+					{{ loggedUser.birthdate }}
+				</dd>
+				<dt>
+					Correo Electrónico
+				</dt>
+				<dd>
+					{{ loggedUser.user.email }}
+				</dd>
+				<dt>
+					Nómina
+				</dt>
+				<dd>
+					{{ loggedUser.paysheet }}
+				</dd>
+				</dd>
+				<dt>
+					Lugar de trabajo
+				</dt>
+				<dd>
+					{{ loggedUser.location }}
+				</dd>
+				<dt>
+					Cargo
+				</dt>
+				<dd>
+					{{ loggedUser.position }}
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-4 column">
+			<ul class="nav nav-stacked nav-pills">
+				<li class="active">
+					<a>Opciones de perfil</a>
+				</li>
+				<li class="dropdown">
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Mis cursos<strong class="caret"></strong></a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="#">Trimestre actual</a>
+						</li>
+						<li>
+							<a href="#">Trimestres pasados</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="#editprofile">Editar perfil</a>
+				</li>
+				<li>
+					<a href="#">Preferencias</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}
